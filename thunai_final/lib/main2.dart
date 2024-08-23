@@ -24,9 +24,8 @@ class TeacherListScreen extends StatefulWidget {
 }
 
 class _TeacherListScreenState extends State<TeacherListScreen> {
-  int _selectedIndex = 0; // Index to track the selected item
+  int _selectedIndex = 0;
 
-  // A list of subjects
   final List<String> subjects = [
     'Matemáticas',
     'Castellano',
@@ -96,7 +95,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
                 setState(() {
                   _selectedIndex = 0;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
               },
               selected: _selectedIndex == 0,
               selectedTileColor: Colors.green[50],
@@ -124,7 +123,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
                     setState(() {
                       _selectedIndex = index + 1;
                     });
-                    Navigator.pop(context); // Close the drawer
+                    Navigator.pop(context);
                   },
                   selected: _selectedIndex == index + 1,
                   selectedTileColor: Colors.green[50],
@@ -139,7 +138,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
                 setState(() {
                   _selectedIndex = 6;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
               },
               selected: _selectedIndex == 6,
               selectedTileColor: Colors.green[50],
@@ -152,7 +151,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
                 setState(() {
                   _selectedIndex = 7;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
               },
               selected: _selectedIndex == 7,
               selectedTileColor: Colors.green[50],
@@ -165,7 +164,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
                 setState(() {
                   _selectedIndex = 8;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
               },
               selected: _selectedIndex == 8,
               selectedTileColor: Colors.green[50],
@@ -178,7 +177,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
                 setState(() {
                   _selectedIndex = 9;
                 });
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
               },
               selected: _selectedIndex == 9,
               selectedTileColor: Colors.green[50],
@@ -187,7 +186,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
           ],
         ),
       ),
-      body: _buildContent(), // Display content based on selected item
+      body: _buildContent(),
     );
   }
 
@@ -204,7 +203,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
       case 5:
         return _buildSubjectContent('Programación');
       case 6:
-        return Center(child: Text('Chats'));
+        return _buildChatPage(); // Display chat list
       case 7:
         return Center(child: Text('Calendario'));
       case 8:
@@ -212,7 +211,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
       case 9:
         return Center(child: Text('Mi perfil'));
       default:
-        return _buildTeacherList(); // Default is the teacher list screen
+        return _buildTeacherList();
     }
   }
 
@@ -245,56 +244,55 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
           ),
           SizedBox(height: 10),
           Container(
-            color: Color(0xFFC6CEFF), // Background color
+            color: Color(0xFFC6CEFF),
             child: Flexible(
               child: ListView(
-                shrinkWrap: true, // Ensure the ListView fits within its parent
+                shrinkWrap: true,
                 children: [
-                _buildTeacherCard(
-                  name: 'Clara Mentos',
-                  subject: 'Matemáticas',
-                  rate: '20€ / hr',
-                  rating: 4.5,
-                  imageUrl: 'https://via.placeholder.com/150',
-                  badge: 'Math Bachelor',
-                ),
-                _buildTeacherCard(
-                  name: 'Juan Fernández',
-                  subject: 'Español',
-                  rate: '25€ / hr',
-                  rating: 4.0,
-                  imageUrl: 'https://via.placeholder.com/150',
-                  badge: null,
-                ),
-                _buildTeacherCard(
-                  name: 'Oliver Smith',
-                  subject: 'Historia - Inglés',
-                  rate: '20€ / hr',
-                  rating: 4.7,
-                  imageUrl: 'https://via.placeholder.com/150',
-                  badge: null,
-                ),
-                _buildTeacherCard(
-                  name: 'Amanda Brown',
-                  subject: 'Inglés',
-                  rate: '20€ / hr',
-                  rating: 4.9,
-                  imageUrl: 'https://via.placeholder.com/150',
-                  badge: 'Advance Certificate',
-                ),
-                _buildTeacherCard(
-                  name: 'Jessica Filt',
-                  subject: 'Música',
-                  rate: '20€ / hr',
-                  rating: 3.8,
-                  imageUrl: 'https://via.placeholder.com/150',
-                  badge: null,
-
-                ),
-              ],
+                  _buildTeacherCard(
+                    name: 'Clara Mentos',
+                    subject: 'Matemáticas',
+                    rate: '20€ / hr',
+                    rating: 4.5,
+                    imageUrl: 'https://via.placeholder.com/150',
+                    badge: 'Math Bachelor',
+                  ),
+                  _buildTeacherCard(
+                    name: 'Juan Fernández',
+                    subject: 'Español',
+                    rate: '25€ / hr',
+                    rating: 4.0,
+                    imageUrl: 'https://via.placeholder.com/150',
+                    badge: null,
+                  ),
+                  _buildTeacherCard(
+                    name: 'Oliver Smith',
+                    subject: 'Historia - Inglés',
+                    rate: '20€ / hr',
+                    rating: 4.7,
+                    imageUrl: 'https://via.placeholder.com/150',
+                    badge: null,
+                  ),
+                  _buildTeacherCard(
+                    name: 'Amanda Brown',
+                    subject: 'Inglés',
+                    rate: '20€ / hr',
+                    rating: 4.9,
+                    imageUrl: 'https://via.placeholder.com/150',
+                    badge: 'Advance Certificate',
+                  ),
+                  _buildTeacherCard(
+                    name: 'Jessica Filt',
+                    subject: 'Música',
+                    rate: '20€ / hr',
+                    rating: 3.8,
+                    imageUrl: 'https://via.placeholder.com/150',
+                    badge: null,
+                  ),
+                ],
+              ),
             ),
           ),
-    ),
         ],
       ),
     );
@@ -330,34 +328,188 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
               Container(
                 padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                 decoration: BoxDecoration(
-                  color: Colors.green[100],
-                  borderRadius: BorderRadius.circular(12),
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Text(
                   badge,
-                  style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 12,
-                  ),
+                  style: TextStyle(color: Colors.white, fontSize: 12),
                 ),
               ),
-            Spacer(),
+            SizedBox(height: 4),
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(rating.toString(), style: TextStyle(fontSize: 16)),
-                Icon(Icons.star, color: Colors.amber, size: 16),
+                Icon(Icons.star, color: Colors.yellow[700], size: 18),
+                SizedBox(width: 2),
+                Text(rating.toString(), style: TextStyle(fontSize: 14)),
               ],
             ),
           ],
         ),
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ChatDetailScreen(
+                imageUrl: imageUrl,
+                userName: name,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 
   Widget _buildSubjectContent(String subject) {
     return Center(
-      child: Text('Contenido para $subject'),
+      child: Text(
+        subject,
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+      ),
+    );
+  }
+
+  Widget _buildChatPage() {
+    return Column(
+      children: [
+        ListTile(
+          leading: CircleAvatar(
+            backgroundImage: NetworkImage('https://via.placeholder.com/150'),
+          ),
+          title: Text('Clara Mentos'),
+          subtitle: Text('Último mensaje...'),
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ChatDetailScreen(
+                  imageUrl: 'https://via.placeholder.com/150',
+                  userName: 'Clara Mentos',
+                ),
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class ChatDetailScreen extends StatefulWidget {
+  final String imageUrl;
+  final String userName;
+
+  ChatDetailScreen({required this.imageUrl, required this.userName});
+
+  @override
+  _ChatDetailScreenState createState() => _ChatDetailScreenState();
+}
+
+class _ChatDetailScreenState extends State<ChatDetailScreen> {
+  final TextEditingController _messageController = TextEditingController();
+  final List<Map<String, dynamic>> _messages = [
+    {'text': 'Hola, ¿cómo estás?', 'isSender': false},
+    {'text': 'Bien, ¿y tú?', 'isSender': true},
+    {'text': '¿Te gustaría tener una clase mañana?', 'isSender': false},
+    {'text': 'Sí, claro.', 'isSender': true},
+  ];
+
+  void _sendMessage() {
+    if (_messageController.text.trim().isEmpty) {
+      return;
+    }
+
+    setState(() {
+      _messages.add({
+        'text': _messageController.text.trim(),
+        'isSender': true,
+      });
+      _messageController.clear();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Row(
+          children: [
+            CircleAvatar(
+              backgroundImage: NetworkImage(widget.imageUrl),
+            ),
+            SizedBox(width: 10),
+            Text(widget.userName),
+          ],
+        ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView.builder(
+              itemCount: _messages.length,
+              itemBuilder: (context, index) {
+                final message = _messages[index];
+                return _buildMessageBubble(
+                  message['text'],
+                  isSender: message['isSender'],
+                );
+              },
+            ),
+          ),
+          _buildMessageInput(),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildMessageBubble(String message, {required bool isSender}) {
+    return Container(
+      padding: EdgeInsets.all(8.0),
+      margin: EdgeInsets.symmetric(vertical: 4.0, horizontal: 10.0),
+      alignment: isSender ? Alignment.centerRight : Alignment.centerLeft,
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 15.0),
+        decoration: BoxDecoration(
+          color: isSender ? Colors.green : Colors.grey[300],
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        child: Text(
+          message,
+          style: TextStyle(color: isSender ? Colors.white : Colors.black),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMessageInput() {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 10.0),
+      color: Colors.grey[200],
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              controller: _messageController,
+              decoration: InputDecoration(
+                hintText: 'Escribe un mensaje...',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                  borderSide: BorderSide.none,
+                ),
+                filled: true,
+                fillColor: Colors.white,
+              ),
+              onSubmitted: (_) => _sendMessage(),
+            ),
+          ),
+          IconButton(
+            icon: Icon(Icons.send, color: Colors.green),
+            onPressed: _sendMessage,
+          ),
+        ],
+      ),
     );
   }
 }
