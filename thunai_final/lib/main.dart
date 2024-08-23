@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'page2.dart';
+
 void main() {
   runApp(const TeachNowApp());
 }
@@ -34,12 +35,8 @@ class TeachNowHomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   const Text(
-                    '🔗 TeachNow',
+                    '🔗 Thunai',
                     style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-                  ),
-                  const Text(
-                    '🔒 Entrar',
-                    style: TextStyle(fontSize: 28),
                   ),
                 ],
               ),
@@ -58,34 +55,12 @@ class TeachNowHomePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const Text(
-                            'Alguien inteligente\naprende de la\nexperiencia de los\ndemás',
+                            'WELCOME',
                             style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                           ),
                           const SizedBox(height: 10),
-                          const Text(
-                            'Voltaire',
-                            style: TextStyle(fontSize: 16, fontStyle: FontStyle.italic),
-                          ),
                           const SizedBox(height: 20),
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => TeachNowApp()), // Navigate to Page2
-                              );
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.green,
-                              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                            child: const Text(
-                              'Empezar ahora',
-                              style: TextStyle(fontSize: 18, color: Colors.white),
-                            ),
-                          ),
+
                         ],
                       ),
                     ),
@@ -107,24 +82,55 @@ class TeachNowHomePage extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 100.0),
-                child: Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Colors.blue[100],
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(Icons.person_add, size: 48, color: Colors.green[700]),
-                      const SizedBox(width: 16),
-                      Expanded(
-                        child: Text(
-                          'Invita a 5 amigos para conseguir un 50% de descuento!',
-                          style: TextStyle(fontSize: 16),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => TeachNowApp()), // Navigate to Page2
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
-                    ],
-                  ),
+                      child: const Text(
+                        'Sign Up as Mentor or Mentee',
+                        style: TextStyle(fontSize: 16, color: Colors.white),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    ElevatedButton(
+                      onPressed: () {
+                        // Implement the login functionality here
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue[100],
+                        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(Icons.person_add, size: 48, color: Colors.green[700]),
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Text(
+                              'Already a User. Login!',
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
