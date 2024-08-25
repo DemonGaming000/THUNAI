@@ -27,11 +27,11 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
   int _selectedIndex = 0;
 
   final List<String> subjects = [
-    'Matemáticas',
-    'Castellano',
-    'Historia',
-    'Inglés',
-    'Programación'
+    'Mathematics',
+    'Geography',
+    'History',
+    'English',
+    'Programming'
   ];
 
   @override
@@ -60,7 +60,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
             children: [
               Icon(Icons.login, color: Colors.grey),
               SizedBox(width: 4),
-              Text('Entrar', style: TextStyle(color: Colors.grey)),
+              Text('Ente', style: TextStyle(color: Colors.grey)),
               SizedBox(width: 16),
             ],
           ),
@@ -90,7 +90,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('Inicio'),
+              title: Text('Home'),
               onTap: () {
                 setState(() {
                   _selectedIndex = 0;
@@ -108,7 +108,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
                     ? Colors.green
                     : null,
               ),
-              title: Text('Asignaturas'),
+              title: Text('Subjects'),
               children: List.generate(subjects.length, (index) {
                 return ListTile(
                   leading: Icon(
@@ -146,7 +146,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
             ),
             ListTile(
               leading: Icon(Icons.calendar_today),
-              title: Text('Calendario'),
+              title: Text('Calendar'),
               onTap: () {
                 setState(() {
                   _selectedIndex = 7;
@@ -159,7 +159,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
             ),
             ListTile(
               leading: Icon(Icons.folder),
-              title: Text('Material'),
+              title: Text('Materials'),
               onTap: () {
                 setState(() {
                   _selectedIndex = 8;
@@ -172,7 +172,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
             ),
             ListTile(
               leading: Icon(Icons.person),
-              title: Text('Mi perfil'),
+              title: Text('Mentors'),
               onTap: () {
                 setState(() {
                   _selectedIndex = 9;
@@ -193,23 +193,23 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
   Widget _buildContent() {
     switch (_selectedIndex) {
       case 1:
-        return _buildSubjectContent('Matemáticas');
+        return _buildSubjectContent('Mathematics');
       case 2:
-        return _buildSubjectContent('Castellano');
+        return _buildSubjectContent('Geography');
       case 3:
-        return _buildSubjectContent('Historia');
+        return _buildSubjectContent('History');
       case 4:
-        return _buildSubjectContent('Inglés');
+        return _buildSubjectContent('English');
       case 5:
-        return _buildSubjectContent('Programación');
+        return _buildSubjectContent('Programming');
       case 6:
         return _buildChatPage(); // Display chat list
       case 7:
-        return Center(child: Text('Calendario'));
+        return Center(child: Text('Calendar'));
       case 8:
-        return Center(child: Text('Material'));
+        return Center(child: Text('Materials'));
       case 9:
-        return Center(child: Text('Mi perfil'));
+        return Center(child: Text('Mentors'));
       default:
         return _buildTeacherList();
     }
@@ -223,7 +223,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
         children: [
           TextField(
             decoration: InputDecoration(
-              hintText: 'Buscar clases',
+              hintText: 'Search classes',
               prefixIcon: Icon(Icons.search, color: Colors.green),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
@@ -235,7 +235,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
           ),
           SizedBox(height: 20),
           Text(
-            'Profesores',
+            'Proffesors',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,

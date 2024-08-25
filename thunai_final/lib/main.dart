@@ -1,5 +1,7 @@
+// main.dart
 import 'package:flutter/material.dart';
-import 'page2.dart';
+import 'signin.dart'; // Importing signin.dart to navigate to SignUpScreen
+import 'page2.dart'; // Importing page2.dart to navigate to it
 
 void main() {
   runApp(const TeachNowApp());
@@ -60,7 +62,6 @@ class TeachNowHomePage extends StatelessWidget {
                           ),
                           const SizedBox(height: 10),
                           const SizedBox(height: 20),
-
                         ],
                       ),
                     ),
@@ -90,7 +91,7 @@ class TeachNowHomePage extends StatelessWidget {
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => TeachNowApp()), // Navigate to Page2
+                          MaterialPageRoute(builder: (context) => SignUpScreen()), // Navigates to SignUpScreen
                         );
                       },
                       style: ElevatedButton.styleFrom(
@@ -108,7 +109,10 @@ class TeachNowHomePage extends StatelessWidget {
                     const SizedBox(height: 10),
                     ElevatedButton(
                       onPressed: () {
-                        // Implement the login functionality here
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => const Page2()), // Navigates to Page2
+                        );
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.blue[100],
@@ -121,7 +125,7 @@ class TeachNowHomePage extends StatelessWidget {
                         children: [
                           Icon(Icons.person_add, size: 48, color: Colors.green[700]),
                           const SizedBox(width: 16),
-                          Expanded(
+                          const Expanded(
                             child: Text(
                               'Already a User. Login!',
                               style: TextStyle(fontSize: 16),
