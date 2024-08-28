@@ -19,7 +19,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  String selectedCategory = 'Matemáticas';
+  String selectedCategory = 'Mathematics';
 
   void updateCategory(String category) {
     setState(() {
@@ -35,18 +35,18 @@ class _HomePageState extends State<HomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text('TeachNow', style: TextStyle(fontSize: 24)),
+              child: Text('Thunai', style: TextStyle(fontSize: 24)),
               decoration: BoxDecoration(
                 color: Colors.white,
               ),
             ),
             ListTile(
               leading: Icon(Icons.home),
-              title: Text('Inicio'),
+              title: Text('Home'),
             ),
             ListTile(
               leading: Icon(Icons.assignment),
-              title: Text('Asignaturas'),
+              title: Text('Subjects'),
               trailing: Icon(Icons.arrow_drop_down),
             ),
             ListTile(
@@ -55,7 +55,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.calendar_today),
-              title: Text('Calendario'),
+              title: Text('Calendar'),
             ),
             ListTile(
               leading: Icon(Icons.folder),
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
             ),
             ListTile(
               leading: Icon(Icons.person),
-              title: Text('Mi perfil'),
+              title: Text('Profile'),
             ),
           ],
         ),
@@ -76,7 +76,7 @@ class _HomePageState extends State<HomePage> {
         iconTheme: IconThemeData(color: Colors.black),
         title: TextField(
           decoration: InputDecoration(
-            hintText: 'Buscar material',
+            hintText: 'Search Materials',
             prefixIcon: Icon(Icons.search),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30),
@@ -126,7 +126,7 @@ class MaterialListSection extends StatelessWidget {
 
   List<MaterialCard> _getMaterialForCategory(String category) {
     switch (category) {
-      case 'Matemáticas':
+      case 'Mathematics':
         return [
           MaterialCard(
             fileType: 'DOC',
@@ -141,7 +141,7 @@ class MaterialListSection extends StatelessWidget {
             timeAgo: 'hace 2 días',
           ),
         ];
-      case 'Historia':
+      case 'History':
         return [
           MaterialCard(
             fileType: 'DOC',
@@ -150,7 +150,7 @@ class MaterialListSection extends StatelessWidget {
             timeAgo: 'hace 1 día',
           ),
         ];
-      case 'Programación':
+      case 'Programming':
         return [
           MaterialCard(
             fileType: 'ZIP',
@@ -230,18 +230,18 @@ class CategoriesSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Categorías', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        Text('Categories', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         SizedBox(height: 10),
         Wrap(
           spacing: 8,
           runSpacing: 8,
           children: [
-            CategoryButton('Matemáticas', Icons.calculate, onCategorySelected),
-            CategoryButton('Castellano', Icons.language, onCategorySelected),
-            CategoryButton('Historia', Icons.book, onCategorySelected),
-            CategoryButton('Inglés', Icons.language, onCategorySelected),
-            CategoryButton('Programación', Icons.computer, onCategorySelected),
-            CategoryButton('Deportes', Icons.sports, onCategorySelected),
+            CategoryButton('Mathematics', Icons.calculate, onCategorySelected),
+            CategoryButton('Social Science', Icons.language, onCategorySelected),
+            CategoryButton('Science', Icons.book, onCategorySelected),
+            CategoryButton('English', Icons.language, onCategorySelected),
+            CategoryButton('Programming', Icons.computer, onCategorySelected),
+
           ],
         ),
       ],

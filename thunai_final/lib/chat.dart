@@ -10,7 +10,7 @@ class TeachNowApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Thunai',
+      title: 'TeachNow',
       theme: ThemeData(
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -29,11 +29,11 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
   int _selectedIndex = 0;
 
   final List<String> subjects = [
-    'Mathematics',
-    'Social Science',
-    'Science',
-    'English',
-    'Programming'
+    'Matemáticas',
+    'Castellano',
+    'Historia',
+    'Inglés',
+    'Programación'
   ];
 
   @override
@@ -54,7 +54,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
           children: [
             Icon(Icons.lock_open, color: Colors.black),
             SizedBox(width: 8),
-            Text('Thunai', style: TextStyle(color: Colors.black)),
+            Text('TeachNow', style: TextStyle(color: Colors.black)),
           ],
         ),
         actions: [
@@ -62,7 +62,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
             children: [
               Icon(Icons.login, color: Colors.grey),
               SizedBox(width: 4),
-              Text('Enter', style: TextStyle(color: Colors.grey)),
+              Text('Entrar', style: TextStyle(color: Colors.grey)),
               SizedBox(width: 16),
             ],
           ),
@@ -81,7 +81,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
                   Icon(Icons.lock_open, color: Colors.black),
                   SizedBox(width: 8),
                   Text(
-                    'Thunai',
+                    'TeachNow',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 24,
@@ -173,7 +173,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
             ),
             ListTile(
               leading: Icon(Icons.person),
-              title: Text('Profile'),
+              title: Text('Mi perfil'),
               onTap: () {
                 setState(() {
                   _selectedIndex = 9;
@@ -194,23 +194,23 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
   Widget _buildContent() {
     switch (_selectedIndex) {
       case 1:
-        return _buildSubjectContent('Mathematics');
+        return _buildSubjectContent('Matemáticas');
       case 2:
-        return _buildSubjectContent('Social Science');
+        return _buildSubjectContent('Castellano');
       case 3:
-        return _buildSubjectContent('Science');
+        return _buildSubjectContent('Historia');
       case 4:
-        return _buildSubjectContent('English');
+        return _buildSubjectContent('Inglés');
       case 5:
-        return _buildSubjectContent('Programming');
+        return _buildSubjectContent('Programación');
       case 6:
         return _buildChatPage(); // Display chat list
       case 7:
-        return Center(child: Text('Calendar'));
+        return Center(child: Text('Calendario'));
       case 8:
         return Center(child: Text('Material'));
       case 9:
-        return Center(child: Text('Profile'));
+        return Center(child: Text('Mi perfil'));
       default:
         return _buildTeacherList();
     }
@@ -224,7 +224,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
         children: [
           TextField(
             decoration: InputDecoration(
-              hintText: 'Search classes',
+              hintText: 'Buscar clases',
               prefixIcon: Icon(Icons.search, color: Colors.green),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8.0),
@@ -236,7 +236,7 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
           ),
           SizedBox(height: 20),
           Text(
-            'Proffesors',
+            'Profesores',
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.bold,
@@ -252,40 +252,40 @@ class _TeacherListScreenState extends State<TeacherListScreen> {
                 children: [
                   _buildTeacherCard(
                     name: 'Clara Mentos',
-                    subject: 'Mathematics',
-                    rate: '200 / hr',
+                    subject: 'Matemáticas',
+                    rate: '20€ / hr',
                     rating: 4.5,
                     imageUrl: 'https://via.placeholder.com/150',
                     badge: 'Math Bachelor',
                   ),
                   _buildTeacherCard(
                     name: 'Juan Fernández',
-                    subject: 'English',
-                    rate: '250 / hr',
+                    subject: 'Español',
+                    rate: '25€ / hr',
                     rating: 4.0,
                     imageUrl: 'https://via.placeholder.com/150',
                     badge: null,
                   ),
                   _buildTeacherCard(
                     name: 'Oliver Smith',
-                    subject: 'Social Science',
-                    rate: '200 / hr',
+                    subject: 'Historia - Inglés',
+                    rate: '20€ / hr',
                     rating: 4.7,
                     imageUrl: 'https://via.placeholder.com/150',
                     badge: null,
                   ),
                   _buildTeacherCard(
                     name: 'Amanda Brown',
-                    subject: 'English',
-                    rate: '200 / hr',
+                    subject: 'Inglés',
+                    rate: '20€ / hr',
                     rating: 4.9,
                     imageUrl: 'https://via.placeholder.com/150',
                     badge: 'Advance Certificate',
                   ),
                   _buildTeacherCard(
                     name: 'Jessica Filt',
-                    subject: 'Music',
-                    rate: '200 / hr',
+                    subject: 'Música',
+                    rate: '20€ / hr',
                     rating: 3.8,
                     imageUrl: 'https://via.placeholder.com/150',
                     badge: null,

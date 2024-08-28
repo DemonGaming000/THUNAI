@@ -25,7 +25,8 @@ class SignUpScreen extends StatelessWidget {
                   color: Color(0xFFFFF6ED),
                   padding: EdgeInsets.fromLTRB(13, 38, 5.9, 86),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+
                     children: [
                       Row(
                         children: [
@@ -36,7 +37,7 @@ class SignUpScreen extends StatelessWidget {
                           ),
                           SizedBox(width: 4),
                           Text(
-                            'TeachNow',
+                            'Thunai',
                             style: GoogleFonts.raleway(
                               fontWeight: FontWeight.w500,
                               fontSize: 15.7,
@@ -47,17 +48,17 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       SizedBox(height: 94.8),
                       Text(
-                        'Crear una cuenta',
+                        'Create an Account',
                         style: GoogleFonts.raleway(
                           fontWeight: FontWeight.w600,
-                          fontSize: 41.4,
+                          fontSize: 28,
                           color: Colors.black,
                         ),
                       ),
                       SizedBox(height: 11),
                       Center(
                         child: Text(
-                          'o usa un email para registrarte',
+                          'Enter your details',
                           style: GoogleFonts.raleway(
                             fontWeight: FontWeight.w500,
                             fontSize: 16.3,
@@ -69,9 +70,9 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 // Input Fields
-                buildInputField('Nombre', 'assets/vectors/user_128_x2.svg'),
-                buildInputField('Email', 'assets/vectors/at_sign_11_x2.svg'),
-                buildInputField('Password', 'assets/vectors/lock_12_x2.svg'),
+                buildInputField('Name', 'assets/vectors/user_128_x2.svg', false),
+                buildInputField('Email', 'assets/vectors/at_sign_11_x2.svg', false),
+                buildInputField('Password', 'assets/vectors/lock_12_x2.svg', true),
                 // Create Account Button
                 Container(
                   margin: EdgeInsets.only(left: 5.1, bottom: 12),
@@ -85,10 +86,10 @@ class SignUpScreen extends StatelessWidget {
                     ),
                     onPressed: () {},
                     child: Row(
-                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          'Crear cuenta',
+                          'Create Account',
                           style: GoogleFonts.raleway(
                             fontWeight: FontWeight.w700,
                             fontSize: 12.2,
@@ -119,7 +120,7 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Widget buildInputField(String label, String iconPath) {
+  Widget buildInputField(String label, String iconPath, bool isPassword) {
     return Container(
       margin: EdgeInsets.only(bottom: 12.7),
       child: SizedBox(
@@ -149,6 +150,21 @@ class SignUpScreen extends StatelessWidget {
                     iconPath,
                     width: 16.3,
                     height: 16.3,
+                  ),
+                  SizedBox(width: 10),
+                  Expanded(
+                    child: TextField(
+                      obscureText: isPassword,
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: label,
+                        hintStyle: GoogleFonts.raleway(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14.5,
+                          color: Color(0xFF959595),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
