@@ -70,7 +70,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 // Input Fields
-                buildInputField('Name', 'assets/vectors/user_128_x2.svg', false),
+                buildInputField('Name',' ',false),
                 buildInputField('Email', 'assets/vectors/at_sign_11_x2.svg', false),
                 buildInputField('Password', 'assets/vectors/lock_12_x2.svg', true),
                 // Create Account Button
@@ -157,15 +157,10 @@ class SignUpScreen extends StatelessWidget {
                       obscureText: isPassword,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        hintText: label,
-                        hintStyle: GoogleFonts.raleway(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.5,
-                          color: Color(0xFF959595),
+
                         ),
                       ),
                     ),
-                  ),
                 ],
               ),
             ),
