@@ -1,12 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-void main() {
-  runApp(SignUpScreen());
-}
+import 'main.dart';
 
 class SignUpScreen extends StatelessWidget {
+  // Define TextEditingControllers for the text fields
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,7 +29,6 @@ class SignUpScreen extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(13, 38, 5.9, 86),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
-
                     children: [
                       Row(
                         children: [
@@ -70,9 +72,9 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 // Input Fields
-                buildInputField('Name',' ',false),
-                buildInputField('Email', 'assets/vectors/at_sign_11_x2.svg', false),
-                buildInputField('Password', 'assets/vectors/lock_12_x2.svg', true),
+                buildInputField('Name', null, false, nameController),
+                buildInputField('Email', 'assets/vectors/at_sign_11_x2.svg', false, emailController),
+                buildInputField('Password', 'assets/vectors/lock_12_x2.svg', true, passwordController),
                 // Create Account Button
                 Container(
                   margin: EdgeInsets.only(left: 5.1, bottom: 12),
@@ -84,7 +86,34 @@ class SignUpScreen extends StatelessWidget {
                       ),
                       padding: EdgeInsets.symmetric(vertical: 12.2),
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      print('sign in button pressed');
+                      String name = nameController.text.trim();
+                      String email = emailController.text.trim();
+                      String password = passwordController.text.trim();
+
+                      if (name.isNotEmpty && email.isNotEmpty && password.isNotEmpty) {
+                        await FirebaseFirestore.instance.collection('Users').add({
+                          'name': name,
+                          'email': email,
+                          'password': password,
+                        });
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('User added to Firestore'),
+                        ));
+
+                        // Navigate directly to TeachNowHomePage using pushReplacement
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => const TeachNowHomePage()),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text('Please fill all fields'),
+                        ));
+                      }
+                    },
+
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -120,7 +149,7 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  Widget buildInputField(String label, String iconPath, bool isPassword) {
+  Widget buildInputField(String label, String? iconPath, bool isPassword, TextEditingController controller) {
     return Container(
       margin: EdgeInsets.only(bottom: 12.7),
       child: SizedBox(
@@ -146,21 +175,23 @@ class SignUpScreen extends StatelessWidget {
               ),
               child: Row(
                 children: [
-                  SvgPicture.asset(
-                    iconPath,
-                    width: 16.3,
-                    height: 16.3,
-                  ),
-                  SizedBox(width: 10),
+                  if (iconPath != null) ...[
+                    SvgPicture.asset(
+                      iconPath,
+                      width: 16.3,
+                      height: 16.3,
+                    ),
+                    SizedBox(width: 10),
+                  ],
                   Expanded(
                     child: TextField(
+                      controller: controller,
                       obscureText: isPassword,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-
-                        ),
                       ),
                     ),
+                  ),
                 ],
               ),
             ),
